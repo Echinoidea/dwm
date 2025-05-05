@@ -29,7 +29,7 @@
  * dwmblocks: https://github.com/torrinfail/dwmblocks
  * https://dwm.suckless.org/patches/statuscmd/
  */
-#define BAR_DWMBLOCKS_PATCH 0
+#define BAR_DWMBLOCKS_PATCH 1
 
 /* Originally the dwmblocks + statuscmd patch used a user defined signal
  * (SIGUSR1) for communicating with dwmblocks to indicate update signal and what
@@ -212,7 +212,7 @@
 #define BAR_WINICON_PATCH 0
 
 /* Show window title in bar */
-#define BAR_WINTITLE_PATCH 1
+#define BAR_WINTITLE_PATCH 0
 
 /* Shows window titles in the bar, but only for floating clients.
  * This depends on code from the flexwintitle patch.
@@ -695,7 +695,7 @@
 /* Allows focusing on clients based on direction (up, down, left, right) instead
  * of client order. https://github.com/bakkeby/patches/wiki/focusdir/
  */
-#define FOCUSDIR_PATCH 0
+#define FOCUSDIR_PATCH 1
 
 /* When changing tags, closing windows or moving clients out of view then focus
  * will revert to the client window that remains under the mouse cursor rather
@@ -973,12 +973,12 @@
  * direction in the tiled stack (up, down, left, right).
  * https://github.com/bakkeby/patches/wiki/placedir
  */
-#define PLACEDIR_PATCH 0
+#define PLACEDIR_PATCH 1
 
 /* This patch lets you change the position of a client in the stack using the
  * mouse. https://github.com/bakkeby/patches/wiki/placemouse
  */
-#define PLACEMOUSE_PATCH 0
+#define PLACEMOUSE_PATCH 1
 
 /* This patch provides a way to move clients up and down inside the client list.
  * https://dwm.suckless.org/patches/push/
@@ -1093,7 +1093,7 @@
  *
  * The above is not persisted across reboots, however.
  */
-#define SEAMLESS_RESTART_PATCH 0
+#define SEAMLESS_RESTART_PATCH 1
 
 /* As opposed to the original patch this only adds a rule option allowing fake
  * fullscreen to be enabled for applications when they start. This is intended
