@@ -82,8 +82,8 @@ static const int bar_height =
     0; /* 0 means derive from font, >= 1 explicit height */
 #endif // BAR_HEIGHT_PATCH
 #if BAR_PADDING_PATCH
-static const int vertpad = 4;   /* vertical padding of bar */
-static const int sidepad = 4; /* horizontal padding of bar */
+static const int vertpad = 8;   /* vertical padding of bar */
+static const int sidepad = 300; /* horizontal padding of bar */
 #endif                          // BAR_PADDING_PATCH
 #if BAR_WINICON_PATCH
 #define ICONSIZE 20   /* icon size */
@@ -204,9 +204,9 @@ static void (*bartabmonfns[])(Monitor *) = {NULL /* , customlayoutfn */};
 #if BAR_PANGO_PATCH
 static const char font[] = "GoMono Nerd Font Mono:10";
 #else
-static const char *fonts[] = {"monospace:size=10"};
+static const char *fonts[] = {"GoMono Nerd Font:size=11"};
 #endif // BAR_PANGO_PATCH
-static const char dmenufont[] = "monospace:size=10";
+static const char dmenufont[] = "GoMono Nerd Font:size=11";
 
 static char c000000[] = "#000000"; // placeholder value
 
