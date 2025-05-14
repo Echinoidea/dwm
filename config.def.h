@@ -15,7 +15,7 @@
 static const unsigned int borderpx = 0; /* border pixel of windows */
 static const int corner_radius = 10;
 #else
-static const unsigned int borderpx = 1; /* border pixel of windows */
+static const unsigned int borderpx = 0; /* border pixel of windows */
 #endif // ROUNDED_CORNERS_PATCH
 #if BAR_BORDER_PATCH
 /* This allows the bar border size to be explicitly set separately from
@@ -82,9 +82,9 @@ static const int bar_height =
     0; /* 0 means derive from font, >= 1 explicit height */
 #endif // BAR_HEIGHT_PATCH
 #if BAR_PADDING_PATCH
-static const int vertpad = 8;   /* vertical padding of bar */
-static const int sidepad = 300; /* horizontal padding of bar */
-#endif                          // BAR_PADDING_PATCH
+static const int vertpad = 4; /* vertical padding of bar */
+static const int sidepad = 8; /* horizontal padding of bar */
+#endif                        // BAR_PADDING_PATCH
 #if BAR_WINICON_PATCH
 #define ICONSIZE 20   /* icon size */
 #define ICONSPACING 5 /* space between icon and title */
@@ -121,8 +121,8 @@ static const int statusmon = 'A';
 #endif // BAR_STATUSALLMONS_PATCH | BAR_STATICSTATUS_PATCH
 #if BAR_STATUSPADDING_PATCH
 static const int horizpadbar = 0; /* horizontal padding for statusbar */
-static const int vertpadbar = 0;    /* vertical padding for statusbar */
-#endif                              // BAR_STATUSPADDING_PATCH
+static const int vertpadbar = 0;  /* vertical padding for statusbar */
+#endif                            // BAR_STATUSPADDING_PATCH
 #if BAR_STATUSBUTTON_PATCH
 static const char buttonbar[] = "<O>";
 #endif // BAR_STATUSBUTTON_PATCH
@@ -1205,11 +1205,11 @@ static const Key keys[] = {
     {MODKEY, XK_Down, focusdir, {.i = 3}},     // down
 #endif                                         // FOCUSDIR_PATCH
 #if PLACEDIR_PATCH
-    {MODKEY | ControlMask, XK_h , placedir, {.i = 0}},  // left
-    {MODKEY | ControlMask, XK_l , placedir, {.i = 1}}, // right
-    {MODKEY | ControlMask, XK_k , placedir, {.i = 2}},    // up
-    {MODKEY | ControlMask, XK_j , placedir, {.i = 3}},  // down
-#endif                                                    // PLACEDIR_PATCH
+    {MODKEY | ControlMask, XK_h, placedir, {.i = 0}}, // left
+    {MODKEY | ControlMask, XK_l, placedir, {.i = 1}}, // right
+    {MODKEY | ControlMask, XK_k, placedir, {.i = 2}}, // up
+    {MODKEY | ControlMask, XK_j, placedir, {.i = 3}}, // down
+#endif                                                // PLACEDIR_PATCH
 #if SWAPFOCUS_PATCH && PERTAG_PATCH
     {MODKEY, XK_s, swapfocus, {.i = -1}},
 #endif // SWAPFOCUS_PATCH
@@ -1248,17 +1248,17 @@ static const Key keys[] = {
     {MODKEY | ControlMask | ShiftMask, XK_r, aspectresize, {.i = -24}},
 #endif // ASPECTRESIZE_PATCH
 #if MOVERESIZE_PATCH
-    {MODKEY | Mod4Mask, XK_Down, moveresize, {.v = "0x 25y 0w 0h"}},
-    {MODKEY | Mod4Mask, XK_Up, moveresize, {.v = "0x -25y 0w 0h"}},
-    {MODKEY | Mod4Mask, XK_Right, moveresize, {.v = "25x 0y 0w 0h"}},
-    {MODKEY | Mod4Mask, XK_Left, moveresize, {.v = "-25x 0y 0w 0h"}},
-    {MODKEY | Mod4Mask | ShiftMask, XK_Down, moveresize, {.v = "0x 0y 0w 25h"}},
-    {MODKEY | Mod4Mask | ShiftMask, XK_Up, moveresize, {.v = "0x 0y 0w -25h"}},
-    {MODKEY | Mod4Mask | ShiftMask,
+    {MODKEY | Mod1Mask, XK_Down, moveresize, {.v = "0x 25y 0w 0h"}},
+    {MODKEY | Mod1Mask, XK_Up, moveresize, {.v = "0x -25y 0w 0h"}},
+    {MODKEY | Mod1Mask, XK_Right, moveresize, {.v = "25x 0y 0w 0h"}},
+    {MODKEY | Mod1Mask, XK_Left, moveresize, {.v = "-25x 0y 0w 0h"}},
+    {MODKEY | Mod1Mask | ShiftMask, XK_Down, moveresize, {.v = "0x 0y 0w 25h"}},
+    {MODKEY | Mod1Mask | ShiftMask, XK_Up, moveresize, {.v = "0x 0y 0w -25h"}},
+    {MODKEY | Mod1Mask | ShiftMask,
      XK_Right,
      moveresize,
      {.v = "0x 0y 25w 0h"}},
-    {MODKEY | Mod4Mask | ShiftMask,
+    {MODKEY | Mod1Mask | ShiftMask,
      XK_Left,
      moveresize,
      {.v = "0x 0y -25w 0h"}},
