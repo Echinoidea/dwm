@@ -82,8 +82,8 @@ static const int bar_height =
     0; /* 0 means derive from font, >= 1 explicit height */
 #endif // BAR_HEIGHT_PATCH
 #if BAR_PADDING_PATCH
-static const int vertpad = 4; /* vertical padding of bar */
-static const int sidepad = 8; /* horizontal padding of bar */
+static const int vertpad = 0; /* vertical padding of bar */
+static const int sidepad = 0; /* horizontal padding of bar */
 #endif                        // BAR_PADDING_PATCH
 #if BAR_WINICON_PATCH
 #define ICONSIZE 20   /* icon size */
