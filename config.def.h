@@ -10,12 +10,14 @@
     .v = (const char *[]) { __VA_ARGS__, NULL }                                \
   }
 
+static const char *termcmd[] = {"alacritty", NULL};
+
 /* appearance */
 #if ROUNDED_CORNERS_PATCH
-static const unsigned int borderpx = 0; /* border pixel of windows */
+static const unsigned int borderpx = 2; /* border pixel of windows */
 static const int corner_radius = 10;
 #else
-static const unsigned int borderpx = 0; /* border pixel of windows */
+static const unsigned int borderpx = 2; /* border pixel of windows */
 #endif // ROUNDED_CORNERS_PATCH
 #if BAR_BORDER_PATCH
 /* This allows the bar border size to be explicitly set separately from
@@ -1037,7 +1039,6 @@ static const char *dmenucmd[] = {"dmenu_run",
                                  topbar ? NULL : "-b",
 #endif // BAR_DMENUMATCHTOP_PATCH
                                  NULL};
-static const char *termcmd[] = {"st", NULL};
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -1170,8 +1171,6 @@ ResourcePref resources[] = {
 #endif // XRESOURCES_PATCH
 
 static const Key keys[] = {
-/* modifier                     key            function                argument
- */
 #if KEYMODES_PATCH
     {MODKEY, XK_Escape, setkeymode, {.ui = COMMANDMODE}},
 #endif // KEYMODES_PATCH
@@ -1435,9 +1434,9 @@ static const Key keys[] = {
     {MODKEY | ControlMask, XK_grave, setscratch, {.v = scratchpadcmd}},
     {MODKEY | ShiftMask, XK_grave, removescratch, {.v = scratchpadcmd}},
 #elif SCRATCHPADS_PATCH
-    {MODKEY, XK_grave, togglescratch, {.ui = 0}},
-    {MODKEY | ControlMask, XK_grave, setscratch, {.ui = 0}},
-    {MODKEY | ShiftMask, XK_grave, removescratch, {.ui = 0}},
+    {MODKEY, XK_s, togglescratch, {.ui = 0}},
+    {MODKEY | ControlMask, XK_s, setscratch, {.ui = 0}},
+    {MODKEY | ShiftMask, XK_s, removescratch, {.ui = 0}},
 #endif // SCRATCHPADS_PATCH | RENAMED_SCRATCHPADS_PATCH
 #if UNFLOATVISIBLE_PATCH
     {MODKEY | Mod4Mask, XK_space, unfloatvisible, {0}},
@@ -1709,6 +1708,12 @@ static const Key keys[] = {
     {MODKEY, XK_F2, mpdchange, {.i = +1}},
     {MODKEY, XK_Escape, mpdcontrol, {0}},
 #endif // MPDCONTROL_PATCH
+
+    {MODKEY | ShiftMask,
+     XK_m,
+     spawn,
+     {.v = "~/dwm-flexipatch/dmenu-scripts/dmenu-mansearch"}},
+
     TAGKEYS(XK_1, 0) TAGKEYS(XK_2, 1) TAGKEYS(XK_3, 2) TAGKEYS(XK_4, 3)
         TAGKEYS(XK_5, 4) TAGKEYS(XK_6, 5) TAGKEYS(XK_7, 6) TAGKEYS(XK_8, 7)
             TAGKEYS(XK_9, 8)};
